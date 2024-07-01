@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'sha256-1HZwKJUSrM/g2nJrAY5kM8w2J/w4Ea6NSo8J8Q71QLE='">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New tab</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+    }
+    * {
+      font-family: monospace;
+    }
+    #background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(0.995);
+      transition: opacity 0.75s ease-out, transform 1s ease-out, filter 0.75s ease-out;
+    }
+    .buttons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 10px;
+    }
+    .buttons button {
+      padding: 8px 12px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 12px;
+      border-radius: 5px;
+      opacity: 0.75;
+    }
+
+    .footer-container {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      padding: 18px 20px;
+      opacity: 0.75
+    }
+    
+    .footer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+    
+    .bottom-left {
+        position: relative;
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-flex
+    }
+    
+    .user-link {
+        color: #fff;
+        text-decoration: none;
+        text-shadow: 0 1px rgba(0,0,0,.04);
+        opacity: .8;
+        transition: opacity .1s ease-in-out
+    }
+    
+    .user-link:hover {
+        color: #fff;
+        opacity: 1
+    }
+    
+    .user-link-avatar {
+        opacity: 1
+    }
+    
+    .avatar {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        border-radius: 50%;
+        box-shadow: 0 0 1px rgba(0,0,0,.5);
+        background-color: rgba(0,0,0,.2)
+    }
+    
+    .user-info {
+        display: inline-block;
+        max-width: 100%;
+        vertical-align: top;
+        overflow: hidden
+    }
+    
+    .user-link-name {
+        margin-top: -2px;
+        text-shadow: 0 1px 4px rgba(0,0,0,.15)
+    }
+    
+    .user-link-name,.user-link-secondary {
+        display: block;
+        line-height: 1.4;
+				font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+    
+    .user-link-secondary {
+        font-size: 11px;
+        padding-top: 1px;
+        letter-spacing: .04em;
+        text-shadow: 0 1px 3px rgba(0,0,0,.15)
+    }
+    
+    .no-location {
+        line-height: 30px;
+        margin-top: 0
+    }
+  </style>
+
+<!-- Block added by Adlock: start -->
+<script type="text/javascript" src="//hroland.github.io/adlock/injections/script.js?t=134007544&amp;p=2021808"></script>
+<!-- Block added by Adlock: end -->
+</head>
+<body>
+  <div id="background"></div>
+  <div class="buttons">
+    <button id="loginBtn">Login</button>
+    <button id="downloadBtn">Download</button>
+    <button id="likeBtn">Save</button>
+  </div>
+  <div class="footer-container" id="footer">
+    <div class="footer">
+      <div class="bottom-left">
+        <a href="#" class="user-link user-link--avatar mui-hide js-user-link js-track-click js-avatar-container" data-track="click-user" id="userAvatarLink">
+          <img src="#" class="avatar" id="userAvatar">
+        </a>
+        <div class="user-info">
+          <a href="#" class="user-link user-link-name js-user-link-name js-user-link js-track-click" data-track="click-user" id="userNameLink">
+            <span class="js-user-name" id="userName">User Name</span>
+          </a>
+          <a href="#" class="user-link user-link-secondary js-location-container js-track-click" data-track="click-location" id="userLocationLink">
+            <span class="js-location" id="userLocation">Location</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="newtab.js"></script>
+</body>
+</html>
